@@ -58,6 +58,6 @@ unsigned int MAX_LIST(const int *array, const unsigned int length, int *result,b
 		result[i] = array[temp];
 		temp = pre[temp];
 	}
-	delete list, pre;
+	delete []list, []pre;
 	return max;
 }
