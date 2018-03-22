@@ -26,14 +26,18 @@ void sort_sa(int m, int n) {
 			else x[sa[i]] = p++;
 	}
 }
-void Gethight() {
+void Getheight() {
 	int k = 0, len = strlen(str);
-	for (int i = 1; i <= len; i++) ran[sa[i]] = i;
-	for (int i = 0; i<len; i++) {
-		if (k) k--;
-		int j = sa[ran[i] - 1];
-		while (str[j + k] == str[i + k]) k++;
-		Height[ran[i]] = k;
+	Clear(ran);
+	Clear(Height);
+	for (int i = 0; i < len; ++i)ran[sa[i]] = i;
+	for (int i = 0; i < len; ++i) {
+		if (k)--k;
+		if (ran[i] != 0) {
+			int j = sa[ran[i] - 1];
+			while (str[j + k] == str[i + k]) ++k;
+			Height[ran[i]] = k;
+		}
 	}
 }
 void Init() {
